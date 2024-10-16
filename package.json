@@ -4,7 +4,8 @@
   "description": "Regresion testing with puppeteer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-snapshots": "jest --config=jest.config.js --detectOpenHandles --forceExit",
+    "test-snapshots-update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit"
   },
   "author": "",
   "license": "ISC",
