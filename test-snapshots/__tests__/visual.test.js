@@ -16,7 +16,7 @@ describe('Visual Regression Testing', () => {
     await browser.close();
   });
 
-  test('Full pafe snapshot', async function () {
+  test('Full page snapshot', async function () {
     await page.goto('https://www.example.com');
     await page.waitForSelector('h1');
     const image = await page.screenshot();
@@ -24,6 +24,38 @@ describe('Visual Regression Testing', () => {
     expect(image).toMatchImageSnapshot({
       failureThresholdType: 'pixel',
       failureThreshold: 500,
+    });
+  });
+
+  test('Single Element Snapshot', async function () {
+    await page.goto('https://www.example.com');
+    const h1 = await page.waitForSelector('h1');
+    const image = await h1.screenshot();
+    expect(image).toMatchImageSnapshot({
+      failureThresholdType: 'percent',
+      failureThreshold: 0.01,
+    });
+  });
+
+  test('Mobile snapshot', async function () {
+    await page.goto('https://www.example.com');
+    await page.waitForSelector('h1');
+    await page.emulate(puppeteer.KnownDevices['iPhone X']);
+    const image = await page.screenshot();
+    expect(image).toMatchImageSnapshot({
+      failureThresholdType: 'percent',
+      failureThreshold: 0.01,
+    });
+  });
+
+  test('Tablet snapshot', async function () {
+    await page.goto('https://www.example.com');
+    await page.waitForSelector('h1');
+    await page.emulate(puppeteer.KnownDevices['iPad Pro 11']);
+    const image = await page.screenshot();
+    expect(image).toMatchImageSnapshot({
+      failureThresholdType: 'percent',
+      failureThreshold: 0.01,
     });
   });
 });
