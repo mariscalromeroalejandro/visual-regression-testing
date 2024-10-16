@@ -1,3 +1,7 @@
-export const rootDir = './tests-snapshots';
-export const testTimeout = 300000;
-export const bail = 0;
+const config = {
+  rootDir: './test-snapshots',
+  testTimeout: 300000,
+  bail: 0,
+};
+
+module.exports = config;
