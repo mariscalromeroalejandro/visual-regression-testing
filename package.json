@@ -1,0 +1,17 @@
+{
+  "name": "pptr-visual",
+  "version": "1.0.0",
+  "description": "Regresion testing with puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-image-snapshot": "^6.4.0",
+    "puppeteer": "^23.5.3"
+  },
+  "type": "module"
+}
